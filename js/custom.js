@@ -96,7 +96,7 @@ function zpk(container, data)
     };
 
     var trace2 = {
-        x: data["poles"]["real"],
+        x: data["zeros"]["real"],
         y: data["zeros"]["imag"],
         type: 'scatter',
         mode: 'markers',
