@@ -9,4 +9,4 @@ tf.bode(w=np.logspace(-2,1))
 tf.zpk()
 
 tf2 = TF([1,1],[2,1],name="system2")
-tf.zpk()
+tf2.zpk()
