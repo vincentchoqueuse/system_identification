@@ -10,3 +10,4 @@ tf.zpk()
 
 tf2 = TF([1,1],[2,1],name="system2")
 tf2.zpk()
+tf2.step()
