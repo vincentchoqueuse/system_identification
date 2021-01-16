@@ -40,7 +40,8 @@
 
     function plot(data)
     {
-        console.log(data)
+        alert(data);
+        console.log(data);
         if (data["type"]=="step")
             {
                 step("plot",data);
@@ -69,12 +70,13 @@
     }
 
     window.addEventListener('load', function(event) {
-        var url = "https://github.com/vincentchoqueuse/system_identification/blob/master/json/system1_step.json";
+        var url = "./json/system1_step.json";
         fetch(url)
             .then(response => {
                 return response.json();
             })
             .then(data => {
+                alert("cououc");
                 plot(data);
             }).catch(err => { });
     });
