@@ -46,8 +46,8 @@
     function load_data()
     {
         var element = document.getElementById('system');
-        var url = "./json/"+value+".json";
-        
+        var url = "./json/"+element.value+".json";
+
         fetch(url)
             .then(response => {
                 return response.json();
