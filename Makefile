@@ -2,7 +2,7 @@ all: json git
 
 
 json:
-	cd local; python main.py
+	cd src; python main.py
 
 git:
 	git add .
