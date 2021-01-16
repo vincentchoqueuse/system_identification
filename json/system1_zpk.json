@@ -1,1 +1,1 @@
-{"poles": {"real": [-0.3333333333333333], "imag": [0.0]}, "zeros": {"real": [], "imag": []}}
+{"type": "zpk", "poles": {"real": [-0.3333333333333333], "imag": [0.0]}, "zeros": {"real": [], "imag": []}, "extra": null}
