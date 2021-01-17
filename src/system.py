@@ -80,6 +80,7 @@ class System():
         poles = self.lti.poles
         zeros = self.lti.zeros
         data = {
+                "type" : "zpk",
                 "poles":
                 {  "real": np.real(poles).tolist(),
                    "imag": np.imag(poles).tolist()

@@ -28,7 +28,7 @@
     {   "order": 2,
         "type": "LP",
         "params": {"K":1,"m": 5, "w0":10},
-        "plot": {"type": "bode","params": {"low":-2,"high": 1}}
+        "plot": {"type": "bode","params": {"low":-2,"high": 4}}
     },
     {   "order": 2,
         "type": "BP",
