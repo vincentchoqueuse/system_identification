@@ -1,1 +1,1 @@
-{"type": "zpk", "poles": {"real": [-0.1], "imag": [0.0]}, "zeros": {"real": [], "imag": []}, "extra": {"K": 1, "tau": 10}}
+{"poles": {"real": [-0.1], "imag": [0.0]}, "zeros": {"real": [], "imag": []}, "extra": {"order": 1, "type": "LP", "params": {"K": 1, "tau": 10}}}

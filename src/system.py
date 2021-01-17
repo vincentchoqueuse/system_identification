@@ -36,11 +36,18 @@ class System():
             if self.type == "BP":
                 num = [2*m*K/w0,0]
 
-            if self.type == "BP":
+            if self.type == "HP":
                 num = [K/(w0**2),0,0]
 
         tf = lti(num,den)
         return tf
+
+    def get_context_data(self):
+        extra = {"order": self.order,
+                 "type" : self.type,
+                 "params" : self.params
+                }
+        return extra
 
     def plot(self,type,params=None):
 
@@ -73,7 +80,6 @@ class System():
         poles = self.lti.poles
         zeros = self.lti.zeros
         data = {
-                "type" : "zpk",
                 "poles":
                 {  "real": np.real(poles).tolist(),
                    "imag": np.imag(poles).tolist()
@@ -83,7 +89,7 @@ class System():
                     "real": np.real(zeros).tolist(),
                     "imag": np.imag(zeros).tolist()
                 },
-                "extra": self.params
+                "extra": self.get_context_data()
         }
         return data
 
@@ -95,7 +101,7 @@ class System():
                 "type" : "step",
                 "t":t.tolist(),
                 "s":s.tolist(),
-                "extra": self.params
+                "extra": self.get_context_data()
                 }
 
         return data
@@ -113,7 +119,7 @@ class System():
                 "w":w.tolist(),
                 "abs":abs.tolist(),
                 "phase":phase.tolist(),
-                "extra": self.params
+                "extra": self.get_context_data()
                 }
         
         return data

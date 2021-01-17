@@ -28,7 +28,17 @@
                     <label for="system" class="form-label">Select System</label>
                     <select id="system_select" class="form-select" onchange="load_data()">
                     </select>
-                    </div>
+                </div>
+                <div id="extra_params" class="d-none">
+                    <ul>
+                        <li>Order: <span id="order"></span></li>
+                        <li>Type: <span id="type"></span></li>
+                        <li>Params: <span id="params"></span></li>
+                    </ul>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-primary" onclick="show_extra" >Show Parameters</button>
+                </div>
             </form>
         </div>
         <div class="col-9">
@@ -59,11 +69,15 @@
         var element = document.getElementById('system_select');
         var url = element.value;
 
+        elm = document.getElementById('extra_params');
+        extra_params.classList.add("d-none");
+
         fetch(url)
             .then(response => {
                 return response.json();
             })
             .then(data => {
+                //add plot
                 if (data["type"]=="step")
                     {
                     step("plot",data);
@@ -76,7 +90,21 @@
                     {
                     zpk("plot",data);
                     }
+                //add extra data
+                order = document.getElementById('order');
+                order.value = data["extra"]["order"];
+                type = document.getElementById('type');
+                type.value = data["extra"]["type"];
+                params = document.getElementById('params');
+                params.value = data["extra"]["params"];
+
             }).catch(err => { });
+    }
+
+    function show_extra()
+    {
+        elm = document.getElementById('extra_params');
+        extra_params.classList.remove("d-none");
     }
   
     window.addEventListener('load', function(event) {
