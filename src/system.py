@@ -63,7 +63,7 @@ class System():
                 w = np.logspace(low,high,300)
             else :
                 w = None
-                
+
             data = self.bode(w=w)
         
         return data
