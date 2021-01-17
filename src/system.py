@@ -16,28 +16,40 @@ class System():
         params = self.params
 
         if (self.order == 1):
-            K = params["K"]
             tau = params["tau"]
             den = [tau,1]
 
             if self.type == "LP":
-                num = [K]
+                T0 = params["T0"]
+                num = [T0]
+
+            if self.type == "HP":
+                Tinf = params["Tinf"]
+                num = [Tinf*tau,0]
 
         if (self.order == 2):
-            K = params["K"]
+            
             m = params["m"]
             w0 = params["w0"]
 
             den = [(1/w0**2),2*m/w0,1]
 
             if self.type == "LP":
-                num = [K]
+                T0 = params["T0"]
+                num = [T0]
 
             if self.type == "BP":
-                num = [2*m*K/w0,0]
+                Tmax = params["Tmax"]
+                num = [2*m*Tmax/w0,0]
 
             if self.type == "HP":
-                num = [K/(w0**2),0,0]
+                Tinf = params["Tinf"]
+                num = [Tinf/(w0**2),0,0]
+
+            if self.type == "Notch":
+                T0 = params["T0"]
+                num = [T0/(w0**2),0,T0]
+
 
         tf = lti(num,den)
         return tf
