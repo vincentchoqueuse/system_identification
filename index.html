@@ -26,11 +26,7 @@
             <form >
                 <div class="mb-3">
                     <label for="system" class="form-label">Select System</label>
-                    <select id="system" class="form-select" onchange="load_data()">
-                        <option value="system1_step">System1</value>
-                        <option value="system1_bode">System2</value>
-                        <option value="system1_zpk" >System3</value>
-                        <option value="system2_zpk" >System4</value>
+                    <select id="system_select" class="form-select" onchange="load_data()">
                     </select>
                     </div>
             </form>
@@ -44,10 +40,23 @@
     <script src="./js/custom.js"></script>
     <script>
 
+    var system_list = null;
+
+    function init()
+    {
+        select_elm = document.getElementById('system_select');
+        for (var indice=0;indice<system_list.length;indice++)
+        {
+            var value = "./json/data_"+indice+".json";
+            var text = "System "+indice;
+            select_elm.options[indice] = new Option(text,value);
+        }
+    }
+
     function load_data()
     {
-        var element = document.getElementById('system');
-        var url = "./json/"+element.value+".json";
+        var element = document.getElementById('system_select');
+        var url = element.value;
 
         fetch(url)
             .then(response => {
@@ -70,7 +79,14 @@
     }
   
     window.addEventListener('load', function(event) {
-        load_data()
+        fetch("./json/system_list.json")
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                system_list = data;
+                init();
+            }).catch(err => { });
     });
     </script>
     </body>

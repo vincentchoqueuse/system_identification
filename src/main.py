@@ -1,13 +1,24 @@
-from system import TF
+from system import System
 import numpy as np
 import json
 
+with open('../json/system_list.json') as json_file:
+    sys_list = json.load(json_file)
 
-tf = TF([1],[3,1],name="system1")
-tf.step()
-tf.bode(w=np.logspace(-2,1))
-tf.zpk()
+# loop over system data
+print("Export data to json")
 
-tf2 = TF([1,1],[2,1],name="system2")
-tf2.zpk()
-tf2.step()
+for id,sys_data in enumerate(sys_list):
+    print("-> process system {}".format(id))
+    sys = System(sys_data["order"],sys_data["type"],sys_data["params"])
+
+    # plot
+    plot = sys_data["plot"]
+    type = plot["type"]
+    params = plot.get("params")
+    data = sys.plot(type,params)
+    
+    #export json
+    filename ="../json/data_{}.json".format(id)
+    with open(filename, 'w') as outfile:
+            json.dump(data, outfile)
