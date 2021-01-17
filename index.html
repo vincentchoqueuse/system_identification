@@ -97,7 +97,7 @@
                 type = document.getElementById('type');
                 type.textContent = data["extra"]["type"];
                 params = document.getElementById('params');
-                params.textContent = data["extra"]["params"];
+                params.textContent = JSON.stringify(data["extra"]["params"]);
 
             }).catch(err => { });
     }

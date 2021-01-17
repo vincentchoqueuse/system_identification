@@ -33,6 +33,6 @@
     {   "order": 2,
         "type": "BP",
         "params": {"K":1,"m": 5, "w0":10},
-        "plot": {"type": "bode","params": {"low":-2,"high": 3}}
+        "plot": {"type": "bode","params": {"low":-2,"high": 4}}
     }
 ]
