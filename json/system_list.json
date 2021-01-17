@@ -7,7 +7,7 @@
     {   "order": 1,
         "type": "LP",
         "params": {"T0":4,"tau":10},
-        "plot": {"type": "bode"}
+        "plot": {"type": "bode","params":{"low":-2,"high":1}}
     },
     {   "order": 1,
         "type": "HP",
@@ -17,7 +17,7 @@
     {   "order": 1,
         "type": "HP",
         "params": {"Tinf":2,"tau":3},
-        "plot": {"type": "bode"}
+        "plot": {"type": "bode","params":{"low":0,"high":3}}
     },
     {   "order": 2,
         "type": "LP",
@@ -32,12 +32,12 @@
     {   "order": 2,
         "type": "LP",
         "params": {"T0":4,"m": 0.1, "w0":100},
-        "plot": {"type": "bode"}
+        "plot": {"type": "bode","params":{"low":1,"high":5}}
     },
     {   "order": 2,
         "type": "LP",
         "params": {"T0":1,"m": 2, "w0":10},
-        "plot": {"type": "bode"}
+        "plot": {"type": "bode","params":{"low":0,"high":4}}
     },
     {   "order": 2,
         "type": "BP",
@@ -52,12 +52,12 @@
     {   "order": 2,
         "type": "BP",
         "params": {"Tmax":5,"m": 0.1, "w0":50},
-        "plot": {"type": "bode"}
+        "plot": {"type": "bode","params":{"low":0,"high":4}}
     },
     {   "order": 2,
         "type": "BP",
         "params": {"Tmax":2,"m": 0.9, "w0":1000},
-        "plot": {"type": "bode"}
+        "plot": {"type": "bode","params":{"low":2,"high":5}}
     },
     {   "order": 2,
         "type": "HP",
@@ -72,12 +72,12 @@
     {   "order": 2,
         "type": "HP",
         "params": {"Tinf":1,"m": 0.1, "w0":500},
-        "plot": {"type": "bode"}
+        "plot": {"type": "bode","params":{"low":1,"high":4}}
     },
     {   "order": 2,
         "type": "HP",
         "params": {"Tinf":10,"m": 1.5, "w0":10},
-        "plot": {"type": "bode"}
+        "plot": {"type": "bode","params":{"low":-1,"high":3}}
     },
     {   "order": 2,
         "type": "Notch",
@@ -92,11 +92,11 @@
     {   "order": 2,
         "type": "Notch",
         "params": {"T0":4,"m": 0.05, "w0":5000},
-        "plot": {"type": "bode"}
+        "plot": {"type": "bode","params":{"low":2,"high":5}}
     },
     {   "order": 2,
         "type": "Notch",
         "params": {"T0":1,"m": 2, "w0":100},
-        "plot": {"type": "bode"}
+        "plot": {"type": "bode","params":{"low":1,"high":4}}
     }
 ]
