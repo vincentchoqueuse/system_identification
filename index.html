@@ -92,11 +92,11 @@
                     }
                 //add extra data
                 order = document.getElementById('order');
-                order.value = data["extra"]["order"];
+                order.textContent = data["extra"]["order"];
                 type = document.getElementById('type');
-                type.value = data["extra"]["type"];
+                type.textContent = data["extra"]["type"];
                 params = document.getElementById('params');
-                params.value = data["extra"]["params"];
+                params.textContent = data["extra"]["params"];
 
             }).catch(err => { });
     }
