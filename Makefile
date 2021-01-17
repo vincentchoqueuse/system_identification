@@ -1,7 +1,4 @@
-all: json git
-
-json:
-	cd src; python main.py
+all: git
 
 git:
 	git add .
